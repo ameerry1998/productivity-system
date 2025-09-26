@@ -30,22 +30,137 @@ A comprehensive macOS productivity blocking system with location-based browser c
 
 ## Usage
 
-### Check Status
+### Check System Status
 ```bash
 sudo ./manager/productivity-manager.sh status
 ```
 
-### Stop/Start Services  
+### Stop/Start Individual Services
 ```bash
+# Stop specific services
 sudo ./manager/productivity-manager.sh stop timer
+sudo ./manager/productivity-manager.sh stop lock
+sudo ./manager/productivity-manager.sh stop configurator
+
+# Start specific services  
+sudo ./manager/productivity-manager.sh start timer
+sudo ./manager/productivity-manager.sh start lock
+
+# Restart services
+sudo ./manager/productivity-manager.sh restart browser
+sudo ./manager/productivity-manager.sh restart all
+
+# Stop all services
+sudo ./manager/productivity-manager.sh stop all
+
+# Start all services
 sudo ./manager/productivity-manager.sh start all
 ```
+
+### Available Service Names
+- **`lock`** - Location-based browser blocking
+- **`timer`** - Time limits & tracking  
+- **`browser`** - Additional browser control
+- **`configurator`** - Anti-tampering protection
+- **`time`** - Time sync protection
+- **`profile`** - Profile protection
+- **`master-watchdog`** - Supreme watchdog protection
 
 ### Sync Latest Changes
 ```bash
 # Run this before committing to capture current system state
 sudo ./sync-from-system.sh
 ```
+
+## How Watchdogs Work
+
+### 3-Level Protection Architecture
+```
+📱 Productivity Manager (Level 1: Supreme Authority)
+    ├── Can override any watchdog protection
+    ├── Sends commands via: /tmp/productivity-manager-overrides/
+    └── Only authority that can truly disable services
+
+🛡️ Master Watchdog (Level 2: Protector)  
+    ├── Monitors all productivity services every 15 seconds
+    ├── Respects manager override commands
+    ├── Auto-restarts killed services within 15 seconds
+    ├── Restores corrupted plist files from backup
+    └── Cannot be easily killed (KeepAlive + self-protection)
+
+⚙️ Individual Scripts (Level 3: Protected)
+    ├── Run as LaunchDaemons (auto-start on boot)
+    ├── Protected by master watchdog
+    └── Will restart automatically if killed
+```
+
+### Watchdog Communication System
+When you stop a service via the manager:
+1. **Manager** sends "disable" command to `/tmp/productivity-manager-overrides/command-servicename`
+2. **Master Watchdog** reads command and creates "disabled-servicename" flag
+3. **Manager** then safely stops the service 
+4. **Watchdog** sees the disable flag and ignores the stopped service
+5. Service stays stopped until manager sends "enable" command
+
+### Protection Against Tampering
+- **Someone kills a script** → Watchdog restarts it within 15 seconds
+- **Someone deletes plist file** → Watchdog restores from backup
+- **Someone kills the watchdog** → launchd restarts it (KeepAlive: true)
+- **Someone tries `launchctl unload`** → Watchdog re-enables the service
+- **Only the manager can override** → Via the command system
+
+### Check Watchdog Status
+```bash
+# View real-time watchdog activity
+tail -f /var/log/productivity_watchdog.log
+
+# Check if watchdog is running
+sudo ./manager/productivity-manager.sh status | grep master-watchdog
+
+# Manual watchdog restart (if needed)
+sudo launchctl bootout system /Library/LaunchDaemons/com.productivity.master-watchdog.plist
+sudo launchctl bootstrap system /Library/LaunchDaemons/com.productivity.master-watchdog.plist
+```
+
+## YubiKey Maintenance
+
+### When YubiKey Authentication Breaks
+If you get "Sorry, try again" errors with sudo:
+
+```bash
+# Check if YubiKey is detected
+system_profiler SPUSBDataType | grep -i yubi
+
+# Check PAM configuration  
+cat /etc/pam.d/sudo | grep pam_u2f
+
+# Regenerate U2F keys (try both locations)
+mkdir -p ~/.config/Yubico
+pamu2fcfg > ~/.config/Yubico/u2f_keys
+
+# Alternative location
+mkdir -p ~/.yubico  
+pamu2fcfg > ~/.yubico/u2f_keys
+
+# Test sudo access
+sudo echo "YubiKey working!"
+```
+
+### YubiKey Setup Requirements
+```bash
+# Install pam-u2f if not present
+brew install pam-u2f
+
+# Ensure PAM is configured in /etc/pam.d/sudo:
+# auth required /opt/homebrew/opt/pam-u2f/lib/pam/pam_u2f.so cue_prompt="Touch your YubiKey to authenticate"
+```
+
+### Troubleshooting YubiKey Issues
+1. **Physical connection**: Try different USB ports
+2. **Generate new keys**: Run `pamu2fcfg` and touch YubiKey when it blinks
+3. **Check permissions**: Ensure u2f_keys file is readable by your user
+4. **Multiple YubiKeys**: Add multiple keys to u2f_keys file (one per line)
+5. **Backup u2f_keys**: Store safely - losing this file breaks authentication
 
 ## System Status
 
