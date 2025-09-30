@@ -176,13 +176,15 @@ get_break_remaining() {
     fi
 }
 
-# Function to check if we're in blocked time period (5am-noon)
+# Function to check if we're in blocked time period (05:00 → 10:40)
 is_blocked_time() {
-    local current_hour=$(date +%H)
-    local hour_num=$((10#$current_hour))  # Convert to decimal to avoid octal issues
-    
-    # Block from 5:00 AM (05) to 11:59 AM (11) - noon is 12
-    if [ $hour_num -ge 5 ] && [ $hour_num -lt 12 ]; then
+    # Minutes since midnight, with leading zeros handled safely
+    local h=$(date +%H)
+    local m=$(date +%M)
+    local now=$((10#$h * 60 + 10#$m))
+    local start=$((5 * 60))     # 05:00 → 300
+    local end=$((10 * 60 + 40)) # 10:40 → 640
+    if [ $now -ge $start ] && [ $now -lt $end ]; then
         return 0  # Blocked time
     fi
     return 1  # Not blocked time
