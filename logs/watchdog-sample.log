@@ -1,50 +1,50 @@
-2025-09-26 00:19:51 [WATCHDOG]: DEBUG: Protecting service='timer' path='/Library/LaunchDaemons/com.productivity.timer.plist'
-2025-09-26 00:19:51 [WATCHDOG]: DEBUG: Protecting service='timer' path='/Library/LaunchDaemons/com.productivity.timer.plist'
-2025-09-26 00:19:51 [WATCHDOG]: DEBUG: Protecting service='browser' path='/Library/LaunchDaemons/com.productivity.browser.plist'
-2025-09-26 00:19:51 [WATCHDOG]: DEBUG: Protecting service='browser' path='/Library/LaunchDaemons/com.productivity.browser.plist'
-2025-09-26 00:19:51 [WATCHDOG]: DEBUG: Protecting service='configurator' path='/Library/LaunchDaemons/com.productivity.configurator-blocker.plist'
-2025-09-26 00:19:51 [WATCHDOG]: DEBUG: Protecting service='configurator' path='/Library/LaunchDaemons/com.productivity.configurator-blocker.plist'
-2025-09-26 00:19:51 [WATCHDOG]: DEBUG: Protecting service='time' path='/Library/LaunchDaemons/com.productivity.time-protection.plist'
-2025-09-26 00:19:51 [WATCHDOG]: DEBUG: Protecting service='time' path='/Library/LaunchDaemons/com.productivity.time-protection.plist'
-2025-09-26 00:19:51 [WATCHDOG]: DEBUG: Protecting service='profile' path='/Library/LaunchDaemons/com.productivity.profile-protection.plist'
-2025-09-26 00:19:51 [WATCHDOG]: DEBUG: Protecting service='profile' path='/Library/LaunchDaemons/com.productivity.profile-protection.plist'
-2025-09-26 00:20:06 [WATCHDOG]: DEBUG: Protecting service='lock' path='/Library/LaunchDaemons/com.productivity.lock.plist'
-2025-09-26 00:20:06 [WATCHDOG]: DEBUG: Protecting service='lock' path='/Library/LaunchDaemons/com.productivity.lock.plist'
-2025-09-26 00:20:06 [WATCHDOG]: DEBUG: Protecting service='timer' path='/Library/LaunchDaemons/com.productivity.timer.plist'
-2025-09-26 00:20:06 [WATCHDOG]: DEBUG: Protecting service='timer' path='/Library/LaunchDaemons/com.productivity.timer.plist'
-2025-09-26 00:20:06 [WATCHDOG]: DEBUG: Protecting service='browser' path='/Library/LaunchDaemons/com.productivity.browser.plist'
-2025-09-26 00:20:06 [WATCHDOG]: DEBUG: Protecting service='browser' path='/Library/LaunchDaemons/com.productivity.browser.plist'
-2025-09-26 00:20:06 [WATCHDOG]: DEBUG: Protecting service='configurator' path='/Library/LaunchDaemons/com.productivity.configurator-blocker.plist'
-2025-09-26 00:20:06 [WATCHDOG]: DEBUG: Protecting service='configurator' path='/Library/LaunchDaemons/com.productivity.configurator-blocker.plist'
-2025-09-26 00:20:06 [WATCHDOG]: DEBUG: Protecting service='time' path='/Library/LaunchDaemons/com.productivity.time-protection.plist'
-2025-09-26 00:20:06 [WATCHDOG]: DEBUG: Protecting service='time' path='/Library/LaunchDaemons/com.productivity.time-protection.plist'
-2025-09-26 00:20:06 [WATCHDOG]: DEBUG: Protecting service='profile' path='/Library/LaunchDaemons/com.productivity.profile-protection.plist'
-2025-09-26 00:20:06 [WATCHDOG]: DEBUG: Protecting service='profile' path='/Library/LaunchDaemons/com.productivity.profile-protection.plist'
-2025-09-26 00:20:21 [WATCHDOG]: DEBUG: Protecting service='lock' path='/Library/LaunchDaemons/com.productivity.lock.plist'
-2025-09-26 00:20:21 [WATCHDOG]: DEBUG: Protecting service='lock' path='/Library/LaunchDaemons/com.productivity.lock.plist'
-2025-09-26 00:20:21 [WATCHDOG]: DEBUG: Protecting service='timer' path='/Library/LaunchDaemons/com.productivity.timer.plist'
-2025-09-26 00:20:21 [WATCHDOG]: DEBUG: Protecting service='timer' path='/Library/LaunchDaemons/com.productivity.timer.plist'
-2025-09-26 00:20:21 [WATCHDOG]: DEBUG: Protecting service='browser' path='/Library/LaunchDaemons/com.productivity.browser.plist'
-2025-09-26 00:20:21 [WATCHDOG]: DEBUG: Protecting service='browser' path='/Library/LaunchDaemons/com.productivity.browser.plist'
-2025-09-26 00:20:21 [WATCHDOG]: DEBUG: Protecting service='configurator' path='/Library/LaunchDaemons/com.productivity.configurator-blocker.plist'
-2025-09-26 00:20:21 [WATCHDOG]: DEBUG: Protecting service='configurator' path='/Library/LaunchDaemons/com.productivity.configurator-blocker.plist'
-2025-09-26 00:20:21 [WATCHDOG]: DEBUG: Protecting service='time' path='/Library/LaunchDaemons/com.productivity.time-protection.plist'
-2025-09-26 00:20:21 [WATCHDOG]: DEBUG: Protecting service='time' path='/Library/LaunchDaemons/com.productivity.time-protection.plist'
-2025-09-26 00:20:21 [WATCHDOG]: DEBUG: Protecting service='profile' path='/Library/LaunchDaemons/com.productivity.profile-protection.plist'
-2025-09-26 00:20:21 [WATCHDOG]: DEBUG: Protecting service='profile' path='/Library/LaunchDaemons/com.productivity.profile-protection.plist'
-2025-09-26 00:20:36 [WATCHDOG]: DEBUG: Protecting service='lock' path='/Library/LaunchDaemons/com.productivity.lock.plist'
-2025-09-26 00:20:36 [WATCHDOG]: DEBUG: Protecting service='lock' path='/Library/LaunchDaemons/com.productivity.lock.plist'
-2025-09-26 00:20:36 [WATCHDOG]: DEBUG: Protecting service='timer' path='/Library/LaunchDaemons/com.productivity.timer.plist'
-2025-09-26 00:20:36 [WATCHDOG]: DEBUG: Protecting service='timer' path='/Library/LaunchDaemons/com.productivity.timer.plist'
-2025-09-26 00:20:36 [WATCHDOG]: DEBUG: Protecting service='browser' path='/Library/LaunchDaemons/com.productivity.browser.plist'
-2025-09-26 00:20:36 [WATCHDOG]: DEBUG: Protecting service='browser' path='/Library/LaunchDaemons/com.productivity.browser.plist'
-2025-09-26 00:20:36 [WATCHDOG]: DEBUG: Protecting service='configurator' path='/Library/LaunchDaemons/com.productivity.configurator-blocker.plist'
-2025-09-26 00:20:36 [WATCHDOG]: DEBUG: Protecting service='configurator' path='/Library/LaunchDaemons/com.productivity.configurator-blocker.plist'
-2025-09-26 00:20:36 [WATCHDOG]: DEBUG: Protecting service='time' path='/Library/LaunchDaemons/com.productivity.time-protection.plist'
-2025-09-26 00:20:36 [WATCHDOG]: DEBUG: Protecting service='time' path='/Library/LaunchDaemons/com.productivity.time-protection.plist'
-2025-09-26 00:20:36 [WATCHDOG]: DEBUG: Protecting service='profile' path='/Library/LaunchDaemons/com.productivity.profile-protection.plist'
-2025-09-26 00:20:36 [WATCHDOG]: DEBUG: Protecting service='profile' path='/Library/LaunchDaemons/com.productivity.profile-protection.plist'
-2025-09-26 00:20:52 [WATCHDOG]: 🛑 Master watchdog shutting down
-2025-09-26 00:20:52 [WATCHDOG]: 🛑 Master watchdog shutting down
-2025-09-26 00:20:52 [WATCHDOG]: 🚀 MASTER PRODUCTIVITY WATCHDOG STARTED (PID: 15384)
-2025-09-26 00:20:52 [WATCHDOG]: 🛡️ Protecting 6 core productivity services with manager override capability
+2025-09-28 10:35:27 [WATCHDOG]: 🔒 Service 'lock' disabled by manager
+2025-09-28 10:35:27 [WATCHDOG]: 🔒 Service 'timer' disabled by manager
+2025-09-28 10:35:27 [WATCHDOG]: 🔒 Service 'browser' disabled by manager
+2025-09-28 10:35:27 [WATCHDOG]: 🔒 Service 'configurator' disabled by manager
+2025-09-28 10:35:27 [WATCHDOG]: 🔒 Service 'time' disabled by manager
+2025-09-28 10:35:27 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-28 10:35:42 [WATCHDOG]: 🔒 Service 'lock' disabled by manager
+2025-09-28 10:35:42 [WATCHDOG]: 🔒 Service 'timer' disabled by manager
+2025-09-28 10:35:42 [WATCHDOG]: 🔒 Service 'browser' disabled by manager
+2025-09-28 10:35:42 [WATCHDOG]: 🔒 Service 'configurator' disabled by manager
+2025-09-28 10:35:42 [WATCHDOG]: 🔒 Service 'time' disabled by manager
+2025-09-28 10:35:42 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-28 10:35:57 [WATCHDOG]: 🔒 Service 'lock' disabled by manager
+2025-09-28 10:35:57 [WATCHDOG]: 🔒 Service 'timer' disabled by manager
+2025-09-28 10:35:57 [WATCHDOG]: 🔒 Service 'browser' disabled by manager
+2025-09-28 10:35:57 [WATCHDOG]: 🔒 Service 'configurator' disabled by manager
+2025-09-28 10:35:57 [WATCHDOG]: 🔒 Service 'time' disabled by manager
+2025-09-28 10:35:57 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-28 10:36:13 [WATCHDOG]: 🔒 Service 'lock' disabled by manager
+2025-09-28 10:36:13 [WATCHDOG]: 🔒 Service 'timer' disabled by manager
+2025-09-28 10:36:13 [WATCHDOG]: 🔒 Service 'browser' disabled by manager
+2025-09-28 10:36:13 [WATCHDOG]: 🔒 Service 'configurator' disabled by manager
+2025-09-28 10:36:13 [WATCHDOG]: 🔒 Service 'time' disabled by manager
+2025-09-28 10:36:13 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-28 10:36:28 [WATCHDOG]: 🔒 Service 'lock' disabled by manager
+2025-09-28 10:36:28 [WATCHDOG]: 🔒 Service 'timer' disabled by manager
+2025-09-28 10:36:28 [WATCHDOG]: 🔒 Service 'browser' disabled by manager
+2025-09-28 10:36:28 [WATCHDOG]: 🔒 Service 'configurator' disabled by manager
+2025-09-28 10:36:28 [WATCHDOG]: 🔒 Service 'time' disabled by manager
+2025-09-28 10:36:28 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-28 10:39:35 [WATCHDOG]: 🚀 MASTER PRODUCTIVITY WATCHDOG STARTED (PID: 570)
+2025-09-28 10:39:35 [WATCHDOG]: 🛡️ Protecting 6 core productivity services with manager override capability
+2025-09-29 02:32:06 [WATCHDOG]: 🚀 MASTER PRODUCTIVITY WATCHDOG STARTED (PID: 571)
+2025-09-29 02:32:06 [WATCHDOG]: 🛡️ Protecting 6 core productivity services with manager override capability
+2025-09-29 03:21:16 [WATCHDOG]: 🚀 MASTER PRODUCTIVITY WATCHDOG STARTED (PID: 570)
+2025-09-29 03:21:16 [WATCHDOG]: 🛡️ Protecting 6 core productivity services with manager override capability
+2025-09-29 07:14:43 [WATCHDOG]: 🚀 MASTER PRODUCTIVITY WATCHDOG STARTED (PID: 562)
+2025-09-29 07:14:43 [WATCHDOG]: 🛡️ Protecting 6 core productivity services with manager override capability
+2025-09-29 16:48:01 [WATCHDOG]: 🚀 MASTER PRODUCTIVITY WATCHDOG STARTED (PID: 537)
+2025-09-29 16:48:01 [WATCHDOG]: 🛡️ Protecting 6 core productivity services with manager override capability
+2025-09-29 18:27:28 [WATCHDOG]: 📱 MANAGER COMMAND: Disabled browser
+2025-09-29 18:27:28 [WATCHDOG]: 📱 MANAGER COMMAND: Disabled configurator
+2025-09-29 18:27:29 [WATCHDOG]: 📱 MANAGER COMMAND: Disabled lock
+2025-09-29 18:27:29 [WATCHDOG]: 📱 MANAGER COMMAND: Disabled time
+2025-09-29 18:27:29 [WATCHDOG]: 📱 MANAGER COMMAND: Disabled timer
+2025-09-29 18:27:29 [WATCHDOG]: 🔒 Service 'lock' disabled by manager
+2025-09-29 18:27:29 [WATCHDOG]: 🔒 Service 'timer' disabled by manager
+2025-09-29 18:27:29 [WATCHDOG]: 🔒 Service 'browser' disabled by manager
+2025-09-29 18:27:29 [WATCHDOG]: 🔒 Service 'configurator' disabled by manager
+2025-09-29 18:27:29 [WATCHDOG]: 🔒 Service 'time' disabled by manager

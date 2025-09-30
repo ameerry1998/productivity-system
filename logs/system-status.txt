@@ -1,20 +1,13 @@
-# Productivity System Status - Fri Sep 26 00:35:31 EDT 2025
+# Productivity System Status - Mon Sep 29 21:43:31 EDT 2025
 
 ## Running Services:
-315	0	com.productivity.profile-protection
-313	0	com.productivity.time-protection
-48573	0	com.productivity.lock
-93120	0	com.productivity.configurator-blocker
-65043	0	com.productivity.browser
-15384	0	com.productivity.master-watchdog
-65273	0	com.productivity.timer
 
 ## File Permissions:
 -rwxr-xr-x@ 1 root  wheel  1504 Sep 25 00:20 /usr/local/productivity/block_apple_configurator.sh
 -rwxr-xr-x@ 1 root  wheel  2445 Sep 24 20:48 /usr/local/productivity/browser_control.sh
--rwxr-xr-x@ 1 root  wheel  7154 Sep 26 00:18 /usr/local/productivity/browser_timer.sh
+-rwxr-xr-x@ 1 root  wheel  7109 Sep 26 18:38 /usr/local/productivity/browser_timer.sh
 -rwxr-xr-x  1 root  wheel  5203 Sep 23 19:27 /usr/local/productivity/geofence_monitor.sh
--rwxr-xr-x@ 1 root  wheel  6575 Sep 26 00:20 /usr/local/productivity/master_watchdog.sh
+-rwxr-xr-x@ 1 root  wheel  6575 Sep 26 18:37 /usr/local/productivity/master_watchdog.sh
 -rwxr-xr-x@ 1 root  wheel  6473 Sep 25 22:58 /usr/local/productivity/screen_lock.sh
 -rwxr-xr-x@ 1 root  wheel  1504 Sep 24 05:50 /usr/local/productivity/time_protection.sh
 

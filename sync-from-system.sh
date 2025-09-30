@@ -77,3 +77,11 @@ echo "   cd /Users/arayan/Desktop/productivity-system-repo"
 echo "   git add ."
 echo "   git commit -m 'Initial productivity system snapshot'"
 echo "   # Then push to GitHub"
+
+
+
+
+
+
+
+

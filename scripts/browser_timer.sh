@@ -1,4 +1,3 @@
-cccccdcekjtgcibcfcrvggtenegvhjgtgfhhktnvujhn
 #!/bin/bash
 
 # Browser time tracking script
