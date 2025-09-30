@@ -126,6 +126,10 @@ CACHE_FILE="/tmp/.network_cache"
 CACHE_DURATION=60  # Cache for 60 seconds
 LOG_FILE="/var/log/screen_lock.log"
 
+# Block when USB tethering is active (iPhone USB / USB Ethernet)
+# Set to 1 to block browsers whenever tethering is detected
+TETHER_BLOCK=1
+
 # Function to log messages
 log_message() {
     echo "$(date): $1" | tee -a "$LOG_FILE"
@@ -159,6 +163,61 @@ get_default_gateway_mac() {
     gw_ip=$(get_default_gateway_ip)
     [ -n "$gw_ip" ] || return 1
     arp -n "$gw_ip" 2>/dev/null | awk '{for(i=1;i<=NF;i++){if($i=="at"){print $(i+1); exit}}}'
+}
+
+# Resolve device name for a given Hardware Port label
+# Example: get_device_for_port "iPhone USB" -> en7
+get_device_for_port() {
+    local port_name="$1"
+    local dev
+    dev=$(networksetup -listallhardwareports 2>/dev/null | awk -v p="$port_name" '
+        $0 ~ "^Hardware Port: " p "$" {getline; if ($1 == "Device:") {print $2; exit}}
+    ')
+    [ -n "$dev" ] && echo "$dev"
+}
+
+# Check if a network interface is active (has link or an IP)
+is_interface_active() {
+    local ifname="$1"
+    [ -z "$ifname" ] && return 1
+    # Active if it has an IPv4 address or reports status active
+    if ifconfig "$ifname" 2>/dev/null | grep -qE "(^|\s)inet\s"; then
+        return 0
+    fi
+    if ifconfig "$ifname" 2>/dev/null | grep -q "status: active"; then
+        return 0
+    fi
+    return 1
+}
+
+# Detect if USB tethering is active (iPhone USB / common USB Ethernet labels)
+is_usb_tether_active() {
+    # Common macOS service names for tethering
+    local services=(
+        "iPhone USB"
+        "USB 10/100/1000 LAN"
+        "USB Ethernet"
+    )
+
+    # Default route interface
+    local def_if
+    def_if=$(route -n get default 2>/dev/null | awk '/interface/ {print $2; exit}')
+
+    local s dev
+    for s in "${services[@]}"; do
+        dev=$(get_device_for_port "$s")
+        if [ -n "$dev" ]; then
+            if is_interface_active "$dev"; then
+                echo "$(date): USB tether active via $s ($dev)" >> "$LOG_FILE"
+                return 0
+            fi
+            if [ -n "$def_if" ] && [ "$def_if" = "$dev" ]; then
+                echo "$(date): Default route on USB interface $s ($dev)" >> "$LOG_FILE"
+                return 0
+            fi
+        fi
+    done
+    return 1
 }
 
 # Function to check if cache is valid
@@ -202,6 +261,13 @@ is_at_home() {
     else
         current_ssid=$(get_current_ssid)
         echo "$current_ssid" > "$CACHE_FILE"
+    fi
+
+    # PRIORITY: If USB tether is active, enforce blocking regardless of Wi‑Fi association
+    # macOS can stay associated to a Wi‑Fi SSID while routing over USB (default route on enX)
+    if [ "${TETHER_BLOCK}" = "1" ] && is_usb_tether_active; then
+        log_message "USB tether detected - enforcing home blocking rules (overrides Wi‑Fi SSID '$current_ssid')"
+        return 0
     fi
     
     for network in "${HOME_NETWORKS[@]}"; do
