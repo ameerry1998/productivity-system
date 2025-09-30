@@ -72,6 +72,59 @@ sudo ./manager/productivity-manager.sh start all
 sudo ./sync-from-system.sh
 ```
 
+## Recent Changes (Oct 2025)
+
+- USB tether blocking: `screen_lock.sh` now blocks when iPhone USB/USB Ethernet is the default route (even if Wi‑Fi is still associated). Toggle via `TETHER_BLOCK=1` in the script. Logs to `/var/log/screen_lock.log`.
+- Morning block window changed to 05:00–10:40 (was 05:00–12:00) in `browser_timer.sh`.
+- Start without sudo: The manager can request starts via the watchdog. Disables/stops still require sudo.
+
+## Start Without sudo (Watchdog Assist)
+
+You can ask the watchdog to re‑enable services without sudo:
+
+```bash
+# Start all services via watchdog (no sudo)
+productivity-manager start all
+
+# Start a single service (e.g., lock) via watchdog (no sudo)
+productivity-manager start lock
+```
+
+Behind the scenes the manager writes an override command that the master watchdog consumes and then brings services back online.
+
+## What Still Requires sudo (and YubiKey)
+
+- `productivity-manager stop <service>` / `stop all`
+- `productivity-manager restart <service>` / `restart all`
+- launchctl operations (bootout/bootstrap/kickstart)
+- reading protected logs in `/var/log` (sometimes)
+- installing/updating the hardened manager in `/usr/local/productivity`
+
+## Hardened Manager (root‑owned, still runnable without sudo)
+
+Install/update the root‑owned manager and convenience symlink:
+
+```bash
+sudo mkdir -p /usr/local/productivity
+sudo cp manager/productivity-manager.sh /usr/local/productivity/productivity-manager.sh
+sudo chown root:wheel /usr/local/productivity/productivity-manager.sh
+sudo chmod 755 /usr/local/productivity/productivity-manager.sh
+sudo ln -sf /usr/local/productivity/productivity-manager.sh /usr/local/bin/productivity-manager
+
+# Optional: make immutable (clear with nouchg before updating)
+# sudo chflags uchg /usr/local/productivity/productivity-manager.sh
+```
+
+## USB Tether Test Steps
+
+```bash
+networksetup -setairportpower en0 off               # turn Wi‑Fi off
+route -n get default | awk '/interface|gateway/ {print}'
+tail -f /var/log/screen_lock.log                    # look for USB tether messages
+```
+
+If your USB service label differs, edit `services=(...)` inside `scripts/screen_lock.sh` and reload the `lock` daemon.
+
 ## How Watchdogs Work
 
 ### 3-Level Protection Architecture

@@ -154,6 +154,8 @@ protect_self() {
 handle_manager_commands() {
     # Create override directory if it doesn't exist
     mkdir -p "$OVERRIDE_DIR"
+    # Allow non-root to request enable/reset; disable will still require root
+    chmod 1777 "$OVERRIDE_DIR" 2>/dev/null || true
     
     # Check for manager enable/disable commands
     for cmd_file in "$OVERRIDE_DIR"/command-*; do
@@ -161,15 +163,28 @@ handle_manager_commands() {
         
         local command=$(cat "$cmd_file" 2>/dev/null)
         local service_name=$(basename "$cmd_file" | sed 's/command-//')
+        # Root-only for disable commands
+        local owner_uid
+        owner_uid=$(stat -f %u "$cmd_file" 2>/dev/null || echo 99999)
         
         case "$command" in
             "disable")
-                touch "$OVERRIDE_DIR/disabled-$service_name"
-                log_message "📱 MANAGER COMMAND: Disabled $service_name"
+                if [ "$owner_uid" = "0" ]; then
+                    touch "$OVERRIDE_DIR/disabled-$service_name"
+                    log_message "📱 MANAGER COMMAND: Disabled $service_name (root)"
+                else
+                    log_message "⚠️  IGNORE disable for $service_name (non-root)"
+                fi
                 ;;
             "enable")
                 rm -f "$OVERRIDE_DIR/disabled-$service_name"
                 log_message "📱 MANAGER COMMAND: Enabled $service_name"
+                ;;
+            "reset"|"enable-all")
+                rm -f "$OVERRIDE_DIR"/disabled-* 2>/dev/null || true
+                log_message "📱 MANAGER COMMAND: Reset → cleared all disabled flags"
+                # Immediately try to bring services back
+                protect_all_services
                 ;;
         esac
         

@@ -1,50 +1,50 @@
-2025-09-28 10:35:27 [WATCHDOG]: 🔒 Service 'lock' disabled by manager
-2025-09-28 10:35:27 [WATCHDOG]: 🔒 Service 'timer' disabled by manager
-2025-09-28 10:35:27 [WATCHDOG]: 🔒 Service 'browser' disabled by manager
-2025-09-28 10:35:27 [WATCHDOG]: 🔒 Service 'configurator' disabled by manager
-2025-09-28 10:35:27 [WATCHDOG]: 🔒 Service 'time' disabled by manager
-2025-09-28 10:35:27 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
-2025-09-28 10:35:42 [WATCHDOG]: 🔒 Service 'lock' disabled by manager
-2025-09-28 10:35:42 [WATCHDOG]: 🔒 Service 'timer' disabled by manager
-2025-09-28 10:35:42 [WATCHDOG]: 🔒 Service 'browser' disabled by manager
-2025-09-28 10:35:42 [WATCHDOG]: 🔒 Service 'configurator' disabled by manager
-2025-09-28 10:35:42 [WATCHDOG]: 🔒 Service 'time' disabled by manager
-2025-09-28 10:35:42 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
-2025-09-28 10:35:57 [WATCHDOG]: 🔒 Service 'lock' disabled by manager
-2025-09-28 10:35:57 [WATCHDOG]: 🔒 Service 'timer' disabled by manager
-2025-09-28 10:35:57 [WATCHDOG]: 🔒 Service 'browser' disabled by manager
-2025-09-28 10:35:57 [WATCHDOG]: 🔒 Service 'configurator' disabled by manager
-2025-09-28 10:35:57 [WATCHDOG]: 🔒 Service 'time' disabled by manager
-2025-09-28 10:35:57 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
-2025-09-28 10:36:13 [WATCHDOG]: 🔒 Service 'lock' disabled by manager
-2025-09-28 10:36:13 [WATCHDOG]: 🔒 Service 'timer' disabled by manager
-2025-09-28 10:36:13 [WATCHDOG]: 🔒 Service 'browser' disabled by manager
-2025-09-28 10:36:13 [WATCHDOG]: 🔒 Service 'configurator' disabled by manager
-2025-09-28 10:36:13 [WATCHDOG]: 🔒 Service 'time' disabled by manager
-2025-09-28 10:36:13 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
-2025-09-28 10:36:28 [WATCHDOG]: 🔒 Service 'lock' disabled by manager
-2025-09-28 10:36:28 [WATCHDOG]: 🔒 Service 'timer' disabled by manager
-2025-09-28 10:36:28 [WATCHDOG]: 🔒 Service 'browser' disabled by manager
-2025-09-28 10:36:28 [WATCHDOG]: 🔒 Service 'configurator' disabled by manager
-2025-09-28 10:36:28 [WATCHDOG]: 🔒 Service 'time' disabled by manager
-2025-09-28 10:36:28 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
-2025-09-28 10:39:35 [WATCHDOG]: 🚀 MASTER PRODUCTIVITY WATCHDOG STARTED (PID: 570)
-2025-09-28 10:39:35 [WATCHDOG]: 🛡️ Protecting 6 core productivity services with manager override capability
-2025-09-29 02:32:06 [WATCHDOG]: 🚀 MASTER PRODUCTIVITY WATCHDOG STARTED (PID: 571)
-2025-09-29 02:32:06 [WATCHDOG]: 🛡️ Protecting 6 core productivity services with manager override capability
-2025-09-29 03:21:16 [WATCHDOG]: 🚀 MASTER PRODUCTIVITY WATCHDOG STARTED (PID: 570)
-2025-09-29 03:21:16 [WATCHDOG]: 🛡️ Protecting 6 core productivity services with manager override capability
-2025-09-29 07:14:43 [WATCHDOG]: 🚀 MASTER PRODUCTIVITY WATCHDOG STARTED (PID: 562)
-2025-09-29 07:14:43 [WATCHDOG]: 🛡️ Protecting 6 core productivity services with manager override capability
-2025-09-29 16:48:01 [WATCHDOG]: 🚀 MASTER PRODUCTIVITY WATCHDOG STARTED (PID: 537)
-2025-09-29 16:48:01 [WATCHDOG]: 🛡️ Protecting 6 core productivity services with manager override capability
-2025-09-29 18:27:28 [WATCHDOG]: 📱 MANAGER COMMAND: Disabled browser
-2025-09-29 18:27:28 [WATCHDOG]: 📱 MANAGER COMMAND: Disabled configurator
-2025-09-29 18:27:29 [WATCHDOG]: 📱 MANAGER COMMAND: Disabled lock
-2025-09-29 18:27:29 [WATCHDOG]: 📱 MANAGER COMMAND: Disabled time
-2025-09-29 18:27:29 [WATCHDOG]: 📱 MANAGER COMMAND: Disabled timer
-2025-09-29 18:27:29 [WATCHDOG]: 🔒 Service 'lock' disabled by manager
-2025-09-29 18:27:29 [WATCHDOG]: 🔒 Service 'timer' disabled by manager
-2025-09-29 18:27:29 [WATCHDOG]: 🔒 Service 'browser' disabled by manager
-2025-09-29 18:27:29 [WATCHDOG]: 🔒 Service 'configurator' disabled by manager
-2025-09-29 18:27:29 [WATCHDOG]: 🔒 Service 'time' disabled by manager
+2025-09-29 22:46:09 [WATCHDOG]: 🚨 SERVICE DOWN: configurator is not running
+2025-09-29 22:46:09 [WATCHDOG]: 🔄 Starting configurator...
+2025-09-29 22:46:11 [WATCHDOG]: ✅ Successfully started configurator
+2025-09-29 22:46:11 [WATCHDOG]: 🚨 SERVICE DOWN: time is not running
+2025-09-29 22:46:11 [WATCHDOG]: 🔄 Starting time...
+2025-09-29 22:46:13 [WATCHDOG]: ✅ Successfully started time
+2025-09-29 22:46:13 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:46:29 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:46:44 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:46:59 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:47:14 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:47:29 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:47:44 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:47:59 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:48:14 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:48:30 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:48:45 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:49:00 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:49:15 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:49:30 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:49:45 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:50:00 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:50:15 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:50:31 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:50:46 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:51:01 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:51:16 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:51:31 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:51:46 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:52:01 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:52:16 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:52:32 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:52:47 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:53:02 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:53:17 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:53:32 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:53:47 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:54:02 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:54:17 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:54:33 [WATCHDOG]: 📱 MANAGER COMMAND: Enabled browser
+2025-09-29 22:54:33 [WATCHDOG]: 📱 MANAGER COMMAND: Enabled configurator
+2025-09-29 22:54:33 [WATCHDOG]: 📱 MANAGER COMMAND: Enabled lock
+2025-09-29 22:54:33 [WATCHDOG]: 📱 MANAGER COMMAND: Enabled timer
+2025-09-29 22:54:33 [WATCHDOG]: 🔒 Service 'profile' disabled by manager
+2025-09-29 22:54:46 [WATCHDOG]: 🚀 MASTER PRODUCTIVITY WATCHDOG STARTED (PID: 13659)
+2025-09-29 22:54:46 [WATCHDOG]: 🛡️ Protecting 6 core productivity services with manager override capability
+2025-09-29 22:54:46 [WATCHDOG]: 📱 MANAGER COMMAND: Enabled profile
+2025-09-29 22:54:46 [WATCHDOG]: 📱 MANAGER COMMAND: Enabled time
+2025-09-29 22:57:48 [WATCHDOG]: 📱 MANAGER COMMAND: Disabled lock (root)
+2025-09-29 22:57:48 [WATCHDOG]: 🔒 Service 'lock' disabled by manager
