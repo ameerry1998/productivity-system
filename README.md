@@ -4,6 +4,17 @@ A comprehensive macOS productivity system that blocks browsers and distracting a
 
 ## Recent Updates (October 13, 2025)
 
+### New Feature: 4-Hour Home Usage Limiter 🔒
+
+**Added:** `home_usage_limiter.sh` - Tracks cumulative laptop usage at home and locks the screen after 4 hours.
+
+**Features:**
+- **Cumulative tracking**: Tracks total time at home throughout the day, even if you leave and return
+- **Hard screen lock**: Uses `CGSession -suspend` requiring password to unlock (not the instant-unlock type)
+- **Smart notifications**: Warns at 2h, 1h, 30m, and 10m remaining
+- **No exceptions**: Enforces the limit strictly
+- **Unified logging**: All logs use `[SCRIPT_NAME]` format for easy debugging
+
 ### Fixed: Reliable Home Network Detection
 
 **Problem:** The previous version used gateway MAC addresses for home detection, but MAC addresses change frequently, causing the script to fail to detect home networks.
@@ -39,6 +50,7 @@ SWIFT
 
 ### Scripts (`/usr/local/productivity/`)
 
+- **`home_usage_limiter.sh`** - 🆕 Locks laptop after 4 hours cumulative use at home
 - **`screen_lock.sh`** - Blocks browsers when at home (using SSID detection)
 - **`browser_timer.sh`** - Enforces 4.5 hour daily limit with 45-minute sessions
 - **`browser_control.sh`** - Additional browser control
@@ -46,6 +58,7 @@ SWIFT
 - **`block_apple_configurator.sh`** - Blocks system configuration tampering
 - **`master_watchdog.sh`** - Protects all productivity scripts from being killed
 - **`productivity-manager.sh`** - Central management interface
+- **`productivity-logs.sh`** - 🆕 Unified log viewer for all productivity scripts
 - **`learn_home_network.sh`** - Helper to add new home networks (legacy, no longer needed)
 - **`geofence_monitor.sh`** - Location-based monitoring
 
@@ -96,6 +109,8 @@ sudo launchctl load /Library/LaunchDaemons/com.productivity.*.plist
 
 ## Management
 
+### Productivity Manager
+
 Use the `productivity-manager.sh` script:
 
 ```bash
@@ -113,6 +128,27 @@ sudo productivity-manager logs lock
 
 # Live monitoring
 sudo productivity-manager live
+```
+
+### Unified Log Viewer 🆕
+
+Use `productivity-logs` to view all logs in one place:
+
+```bash
+# View statistics and current usage
+productivity-logs stats
+
+# Stream all logs in real-time
+productivity-logs live
+
+# Show last 100 log entries
+productivity-logs tail 100
+
+# Show today's logs
+productivity-logs today
+
+# Search for specific term
+productivity-logs search "home network"
 ```
 
 ## How It Works
