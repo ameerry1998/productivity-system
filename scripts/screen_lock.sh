@@ -145,7 +145,6 @@ is_at_home() {
     
     return 1
 }
-}
 
 # Function to kill browsers
 block_browsers() {
