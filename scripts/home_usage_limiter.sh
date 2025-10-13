@@ -108,6 +108,12 @@ is_at_home() {
     local networks_in_range
     networks_in_range=$(get_ssids_in_range)
     
+    # FAIL-CLOSED: If Swift failed, assume home for safety
+    if echo "$networks_in_range" | grep -qF "SWIFT_COMPILATION_FAILED_ASSUME_HOME"; then
+        log_message "⚠️  Network scanner failed - ASSUMING HOME (fail-closed for safety)"
+        return 0
+    fi
+
     # Check if any home network is in range
     for network in "${HOME_NETWORKS[@]}"; do
         if echo "$networks_in_range" | grep -qF "$network"; then
