@@ -14,6 +14,7 @@ HOME_NETWORKS=(
 # Block when USB tethering is active (iPhone USB / USB Ethernet)
 TETHER_BLOCK=1
 
+BROWSERS=(
 # Comprehensive browser list (80+ browsers)
     "Safari"
     "Arc"
@@ -41,6 +42,7 @@ TETHER_BLOCK=1
     "qutebrowser"
     "Ungoogled Chromium"
     "Iridium Browser"
+)
 
 # Configuration
 LOG_FILE="/var/log/screen_lock.log"
@@ -148,10 +150,12 @@ is_at_home() {
 
 # Function to kill browsers
 block_browsers() {
+    log_message "DEBUG: block_browsers() called"
     local blocked_count=0
     
     for browser in "${BROWSERS[@]}"; do
-        if pkill -x "$browser" 2>/dev/null; then
+        if pkill -x "$browser" 2>&1 | tee -a /var/log/screen_lock.log; then
+            log_message "DEBUG: pkill succeeded for $browser"
             log_message "Blocked $browser (at home)"
             ((blocked_count++))
         fi
