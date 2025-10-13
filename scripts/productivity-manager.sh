@@ -11,7 +11,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Script definitions (compatible with bash 3.2)
-SCRIPTS="lock timer browser configurator time profile master-watchdog"
+SCRIPTS="lock timer browser configurator time profile home-limiter master-watchdog"
 OVERRIDE_DIR="/tmp/productivity-manager-overrides"
 
 get_plist_path() {
@@ -60,18 +60,35 @@ check_sudo() {
 }
 
 # Check status of a service
+# Improved check_status function - checks actual processes
 check_status() {
     local script="$1"
+    local script_file=""
     
-    if launchctl list | grep -q "com.productivity.$script"; then
-        # Check if manager has disabled it
+    # Map script name to actual script filename
+    case "$script" in
+        "lock") script_file="screen_lock.sh" ;;
+        "timer") script_file="browser_timer.sh" ;;
+        "browser") script_file="browser_control.sh" ;;
+        "configurator") script_file="block_apple_configurator.sh" ;;
+        "time") script_file="time_protection.sh" ;;
+        "profile") script_file="silent_profile_monitor.sh" ;;
+        "master-watchdog") script_file="master_watchdog.sh" ;;
+    esac
+    
+    # Check if the actual script process is running
+    if ps aux | grep -v grep | grep -q "$script_file"; then
         if [ -f "$OVERRIDE_DIR/disabled-$script" ]; then
             echo -e "${YELLOW}🔒 Disabled by Manager${NC}"
         else
             echo -e "${GREEN}✅ Running${NC}"
         fi
     else
-        echo -e "${RED}❌ Stopped${NC}"
+        if launchctl list | grep -q "com.productivity.$script"; then
+            echo -e "${YELLOW}⚠️  Loaded but not running${NC}"
+        else
+            echo -e "${RED}❌ Stopped${NC}"
+        fi
     fi
 }
 
