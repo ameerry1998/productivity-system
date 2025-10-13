@@ -40,8 +40,10 @@ echo ""
 echo "Step 4/8: Installing command-line tools..."
 ln -sf /usr/local/productivity/productivity-manager.sh /usr/local/bin/productivity-manager
 cp scripts/productivity-logs.sh /usr/local/bin/productivity-logs
+cp scripts/get-network-ssids.sh /usr/local/bin/get-network-ssids
 chmod 755 /usr/local/bin/productivity-logs
-echo "✅ Command-line tools installed (productivity-manager, productivity-logs)"
+chmod 755 /usr/local/bin/get-network-ssids
+echo "✅ Command-line tools installed (productivity-manager, productivity-logs, get-network-ssids)"
 echo ""
 
 echo "Step 5/8: Installing menu bar app..."
