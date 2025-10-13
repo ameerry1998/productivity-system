@@ -15,7 +15,6 @@ HOME_NETWORKS=(
 TETHER_BLOCK=1
 
 # Comprehensive browser list (80+ browsers)
-BROWSERS=(
     "Safari"
     "Arc"
     "Google Chrome"
@@ -28,7 +27,20 @@ BROWSERS=(
     "Tor Browser"
     "DuckDuckGo Privacy Browser"
     "Chromium"
-)
+    "Safari Technology Preview"
+    "Firefox Developer Edition"
+    "Google Chrome Canary"
+    "Opera GX"
+    "Mullvad Browser"
+    "LibreWolf"
+    "Waterfox"
+    "Orion"
+    "SigmaOS"
+    "Sidekick"
+    "Min"
+    "qutebrowser"
+    "Ungoogled Chromium"
+    "Iridium Browser"
 
 # Configuration
 LOG_FILE="/var/log/screen_lock.log"
