@@ -48,7 +48,7 @@ is_manager_disabled() {
 is_service_running() {
     local plist_path="$1"
     local service_name=$(basename "$plist_path" .plist)
-    launchctl list | grep -q "$service_name"
+    launchctl list | grep "$service_name" | grep -qv "^-"
 }
 
 # Check if plist file exists and is intact
@@ -117,6 +117,7 @@ backup_plist() {
 # Main protection logic
 protect_service() {
     local service_name="$1"
+    log_message "DEBUG: protect_service called for $service_name"
     local plist_path="$2"
     
     # Skip if manager has disabled this service
@@ -144,6 +145,7 @@ protect_service() {
     
     # Check if service is running
     if ! is_service_running "$plist_path"; then
+        log_message "DEBUG: $service_name is NOT running - needs restart"
         log_message "🚨 SERVICE DOWN: $service_name is not running"
         needs_intervention=true
     fi
