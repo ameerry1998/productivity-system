@@ -243,3 +243,59 @@ git push
 
 Personal use only.
 
+
+---
+
+## 📚 **Complete Documentation**
+
+- **[SCRIPTS_REFERENCE.md](SCRIPTS_REFERENCE.md)** - Complete inventory of all scripts, what they do, and when to use them
+- **[YUBIKEY_SETUP.md](YUBIKEY_SETUP.md)** - YubiKey configuration and troubleshooting (register-yubikey script)
+- **[FRESH_INSTALL_GUIDE.md](FRESH_INSTALL_GUIDE.md)** - How to install on a new Mac
+- **[SESSION_LOG_2025-10-13.md](SESSION_LOG_2025-10-13.md)** - Debugging session history and fixes
+
+---
+
+## 🚀 **Quick Start (New Mac)**
+
+```bash
+# 1. Clone repo
+git clone git@github.com:ameerry1998/productivity-system.git
+cd productivity-system
+
+# 2. Run installer
+sudo bash INSTALL.sh
+
+# 3. Configure home networks
+sudo nano /usr/local/productivity/screen_lock.sh
+# Edit HOME_NETWORKS array
+
+# 4. Register YubiKey
+register-yubikey
+
+# 5. Done! Check status
+productivity-manager status
+```
+
+---
+
+## 📊 **System Status**
+
+Check what's running:
+```bash
+productivity-manager status
+```
+
+View logs:
+```bash
+productivity-logs live
+```
+
+Reload after editing scripts:
+```bash
+productivity-reload
+```
+
+---
+
+**Last Updated:** October 13, 2025  
+**System Status:** ✅ Fully Operational
