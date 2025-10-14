@@ -6,7 +6,7 @@
 SCRIPT_NAME="HOME_LIMITER"
 
 # Configuration
-DAILY_HOME_LIMIT=14400  # 4 hours in seconds
+DAILY_HOME_LIMIT=11700  # 3 hours 15 minutes in seconds
 TIMER_FILE="/var/log/home_usage.timer"
 LOG_FILE="/var/log/home_usage.log"
 CHECK_INTERVAL=30  # Check every 30 seconds
@@ -254,7 +254,7 @@ while true; do
             log_message "❌ Home usage limit exceeded: $((current_usage / 60)) minutes used"
             lock_screen
             # After lock, sleep for a while before checking again
-            sleep 10  # Check every 10 seconds and keep locking
+            sleep 5  # Check every 5 seconds and keep locking
             continue
         fi
         

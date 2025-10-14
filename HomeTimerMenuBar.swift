@@ -8,7 +8,7 @@ class HomeTimerApp: NSObject, NSApplicationDelegate {
     var timer: Timer?
     
     let timerFile = "/var/log/home_usage.timer"
-    let dailyLimit = 14400 // 4 hours in seconds
+    let dailyLimit = 11700 // 3 hours 15 minutes in seconds
     
     func applicationDidFinishLaunching(_ notification: Notification) {
         // Create status bar item
