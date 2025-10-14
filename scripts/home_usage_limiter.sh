@@ -205,7 +205,8 @@ lock_screen() {
     send_notification "🔒 Laptop Locked" "4-hour home usage limit reached. Screen locked until tomorrow."
     
     # Use CGSession to lock screen (requires password to unlock)
-    /System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend
+    # Lock screen using Cmd+Ctrl+Q keystroke (works without sudo)
+    /usr/bin/osascript -e 'tell application "System Events" to keystroke "q" using {command down, control down}'
     
     log_message "Screen lock command executed"
 }
