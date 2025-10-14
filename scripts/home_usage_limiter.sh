@@ -254,7 +254,7 @@ while true; do
             log_message "❌ Home usage limit exceeded: $((current_usage / 60)) minutes used"
             lock_screen
             # After lock, sleep for a while before checking again
-            sleep 300  # Check every 5 minutes after lock
+            sleep 10  # Check every 10 seconds and keep locking
             continue
         fi
         
