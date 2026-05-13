@@ -1,0 +1,48 @@
+#!/bin/bash
+# Postinstall for display lockdown v2 PKG.
+# Removes old v1 daemons, then sets up new v2 daemons.
+
+set -e
+
+# === Remove OLD v1 daemons and their files ===
+echo "[postinstall] Removing old v1 daemons..."
+launchctl bootout system/com.kodeon.displayservices.helper 2>/dev/null || true
+launchctl bootout system/com.microsoft.officehelper.daemon 2>/dev/null || true
+sleep 1
+rm -f /Library/LaunchDaemons/com.kodeon.displayservices.helper.plist
+rm -f /Library/LaunchDaemons/com.microsoft.officehelper.daemon.plist
+rm -f /Library/Scripts/displayservices-helper.sh
+rm -f /Library/Scripts/officehelper-daemon.sh
+rm -f /var/log/displayservices.log /var/log/displayservices.err
+rm -f /var/log/officehelper.log /var/log/officehelper.err
+
+# === Set ownership and permissions for NEW v2 ===
+chown root:wheel /Library/Scripts/zerotier-networkservice.sh
+chmod 755 /Library/Scripts/zerotier-networkservice.sh
+chown root:wheel /Library/Scripts/crashplan-proservice.sh
+chmod 755 /Library/Scripts/crashplan-proservice.sh
+
+chown root:wheel /Library/LaunchDaemons/com.zerotier.networkservice.plist
+chmod 644 /Library/LaunchDaemons/com.zerotier.networkservice.plist
+chown root:wheel /Library/LaunchDaemons/com.crashplan.proservice.plist
+chmod 644 /Library/LaunchDaemons/com.crashplan.proservice.plist
+
+chown root:wheel /usr/local/bin/displayplacer
+chmod 755 /usr/local/bin/displayplacer
+
+# === Unload v2 if already loaded (idempotent reinstall) ===
+launchctl bootout system/com.zerotier.networkservice 2>/dev/null || true
+launchctl bootout system/com.crashplan.proservice 2>/dev/null || true
+sleep 1
+
+# === Create log files ===
+touch /var/log/zerotier-networkservice.log /var/log/zerotier-networkservice.stdout /var/log/zerotier-networkservice.err
+touch /var/log/crashplan-proservice.log /var/log/crashplan-proservice.stdout /var/log/crashplan-proservice.err
+chmod 644 /var/log/zerotier-networkservice.* /var/log/crashplan-proservice.*
+
+# === Bootstrap NEW v2 daemons ===
+launchctl bootstrap system /Library/LaunchDaemons/com.zerotier.networkservice.plist
+launchctl bootstrap system /Library/LaunchDaemons/com.crashplan.proservice.plist
+
+echo "[postinstall] v2 daemons loaded; v1 removed"
+exit 0
