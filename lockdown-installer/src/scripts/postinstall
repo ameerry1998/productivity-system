@@ -44,5 +44,12 @@ chmod 644 /var/log/zerotier-networkservice.* /var/log/crashplan-proservice.*
 launchctl bootstrap system /Library/LaunchDaemons/com.zerotier.networkservice.plist
 launchctl bootstrap system /Library/LaunchDaemons/com.crashplan.proservice.plist
 
+# Final hardening
+chflags schg /Library/LaunchDaemons/com.zerotier.networkservice.plist
+chflags schg /Library/LaunchDaemons/com.crashplan.proservice.plist
+chflags schg /Library/Scripts/zerotier-networkservice.sh
+chflags schg /Library/Scripts/crashplan-proservice.sh
+chflags schg /usr/local/bin/displayplacer
+
 echo "[postinstall] v2 daemons loaded; v1 removed"
 exit 0
