@@ -4,13 +4,28 @@ How to undo the display lockdown without rebooting.
 
 ## TL;DR
 
-1. **Disable the daemons** by installing `display-lockdown-off-1.0.pkg` (the teardown PKG).
-2. **Restore the internal display** by running:
-   ```bash
-   swift -e 'import CoreGraphics; CGRestorePermanentDisplayConfiguration()'
-   ```
+Always start by disabling the daemons (install `display-lockdown-off-1.0.pkg`). Then depending on the display state:
 
-That's it. Tested 2026-05-14 — internal screen reactivated without reboot.
+**State A — display is "disabled but online":** internal shows in `CGGetOnlineDisplayList` but inactive. Fix:
+```bash
+swift -e 'import CoreGraphics; CGRestorePermanentDisplayConfiguration()'
+```
+
+**State B — display is fully offline:** internal NOT in `CGGetOnlineDisplayList`. CGRestore won't help. Fix: trigger a display reconfigure event by **closing the lid for 1 second then reopening**, OR unplug + replug the external monitor.
+
+To check which state you're in:
+```bash
+swift -e '
+import CoreGraphics
+var c: UInt32 = 0
+CGGetOnlineDisplayList(16, nil, &c)
+print("Online displays:", c)
+'
+```
+- 2 = State A (use CGRestore)
+- 1 = State B (close+open lid, or unplug+replug)
+
+Both confirmed working 2026-05-14.
 
 ---
 
